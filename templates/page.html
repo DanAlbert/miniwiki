@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ super() }}{% endblock %}
+
+{% block content %}
+<h1>{{ page.title }}</h1>
+<span>
+	Last edited on {{ page.last_edited.strftime('%B %d, %Y at %H:%S') }}.
+</span>
+<a href="{{ uri_for("edit-page", page_title=page.title) }}">Edit</a>
+<p>{{ page.text }}</p>
+{% endblock %}
